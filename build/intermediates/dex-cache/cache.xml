@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/34f105bb85dfbe607dd50df6c53f6f58480ae9a8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_a406a654797ba1f27c26843668d0b6e178925f80.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/ef1d59aa14973f405b8bb84621283a5c13827d45/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_9581eab4b10d640f86a70796bbae0a3f156b15a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/63860daa84e799383c17c7e7c924800212806e26/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_8ca38e7763f35d5744b46d1f4a27828053f67a87.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/a69e8e371088ad69c2541c94fb7fe3b921ce64d2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_b9969f659cf3db68d578645d4741cc163dbb616c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/4ca17022ce0e86360951a4dc48fcf5e0419a1695/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_747fcf63ed0f86b2dac60f905c5c7d055d5335fb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/a49e351471072679159a5bea59e9c5fa60ad0688/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_8187eea67e65bee34447e53ac584a449d64d8a8b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/0d6e409bbc54fc2bf2af566373bb62c2c988c779/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
+        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_39fda15c6b1bbd01374c59fee89d9cee635e01d5.jar" />
+    </item>
+
+</items>
