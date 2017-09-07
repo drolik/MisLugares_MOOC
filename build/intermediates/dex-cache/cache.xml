@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/drolik/.android/build-cache/d8f33ba782e0c32fc1502e52b3ea8eb654140607/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_ba507e82699b90a41082193f1a4113886dfde603.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/drolik/.android/build-cache/ef1d59aa14973f405b8bb84621283a5c13827d45/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -30,12 +39,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/drolik/.android/build-cache/928381e8cf2d52e1614aa282836651b0fddb3182/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_2cc4536181ea85beff76f53bce25dbdfd2b3a460.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/drolik/.android/build-cache/a69e8e371088ad69c2541c94fb7fe3b921ce64d2/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
         <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_b9969f659cf3db68d578645d4741cc163dbb616c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/ad207d88a48014e222ce364ac01442cfdb72b01d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_31f48c2d05625b577d42cd3db80b1106349cdd1d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -54,6 +81,15 @@
         revision="25.0.2"
         sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
         <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_8187eea67e65bee34447e53ac584a449d64d8a8b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/drolik/.android/build-cache/1fc1140d839ee7eaf61a128c9bf256bbfa6e723d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_76cca5e14576fe08b1ce0f1155c87da8114df90c.jar" />
     </item>
     <item
         is-multidex="false"

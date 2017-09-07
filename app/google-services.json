@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "783626803169",
+    "firebase_url": "https://mis-lugares-mooc-d1bc9.firebaseio.com",
+    "project_id": "mis-lugares-mooc-d1bc9",
+    "storage_bucket": "mis-lugares-mooc-d1bc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783626803169:android:21acfdcb4727eb36",
+        "android_client_info": {
+          "package_name": "com.example.mislugares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783626803169-bti36o99b1ar83n2rcs5vpjoojd89qqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mislugares",
+            "certificate_hash": "9bd3305e4c4c35884b546722e5217de4254fa820"
+          }
+        },
+        {
+          "client_id": "783626803169-t22pcss4cee3b5fjjd0k7vet6cie38ai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv551riqU0riPmyBu0UqNfsjRcZk4bv0E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783626803169-t22pcss4cee3b5fjjd0k7vet6cie38ai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
