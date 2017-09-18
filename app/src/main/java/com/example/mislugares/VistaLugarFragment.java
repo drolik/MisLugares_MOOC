@@ -3,24 +3,31 @@ package com.example.mislugares;
 import android.Manifest;
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,13 +42,26 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.OnPausedListener;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class VistaLugarFragment extends Fragment implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     private long id;
@@ -52,6 +72,17 @@ public class VistaLugarFragment extends Fragment implements TimePickerDialog.OnT
     final static int RESULTADO_FOTO = 3;
     private Uri uriFoto;
     private View v;
+
+    // Firebase storage
+    final int SOLICITUD_SUBIR_PUTDATA = 0;
+    final int SOLICITUD_SUBIR_PUTSTREAM = 1;
+    final int SOLICITUD_SUBIR_PUTFILE = 2;
+    final int SOLICITUD_SELECCION_STREAM = 100;
+    final int SOLICITUD_SELECCION_PUTFILE = 101;
+    private ProgressDialog progresoSubida;
+    Boolean subiendoDatos =false;
+    ImageView imgImagen;
+    String miLugar;
 
     @Override
     public View onCreateView(LayoutInflater inflador, ViewGroup contenedor,
@@ -103,6 +134,11 @@ public class VistaLugarFragment extends Fragment implements TimePickerDialog.OnT
                 cambiarFecha();
             }
         });
+
+  //      Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+    //    ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
+
         return vista;
     }
 
@@ -116,7 +152,15 @@ public class VistaLugarFragment extends Fragment implements TimePickerDialog.OnT
             if (id != -1) {
                 actualizarVistas(id);
             }
+
+            miLugar = extras.getString("miLugar");
+            //if (evento == null) evento = "";
+            if (miLugar==null) {
+                android.net.Uri url = getActivity().getIntent().getData();
+                miLugar= url.getQueryParameter("miLugar");
+            }
         }
+
     }
 
     public void actualizarVistas(final long id) {
@@ -205,8 +249,121 @@ public class VistaLugarFragment extends Fragment implements TimePickerDialog.OnT
                 int _id = SelectorFragment.adaptador.idPosicion((int) id);
                 borrarLugar((int) _id);
                 return true;
+            case R.id.action_putData:
+                subirAFirebaseStorage(SOLICITUD_SUBIR_PUTDATA, null);
+               // break;
+                return true;
+            case R.id.action_streamData:
+                seleccionarFotografiaDispositivo(v, SOLICITUD_SELECCION_STREAM);
+                // break;
+                return true;
+            case R.id.action_putFile:
+                seleccionarFotografiaDispositivo(v, SOLICITUD_SELECCION_PUTFILE);
+                // break;
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void seleccionarFotografiaDispositivo(View v, Integer solicitud) {
+        Intent seleccionFotografiaIntent = new Intent(Intent.ACTION_PICK);
+        seleccionFotografiaIntent.setType("image/*");
+        startActivityForResult(seleccionFotografiaIntent, solicitud);
+    }
+
+    public void subirAFirebaseStorage(Integer opcion, String ficheroDispositivo) {
+        final ProgressDialog progresoSubida = ProgressDialog.show(getActivity(), "Espere ...", "Subiendo ...", true);
+        UploadTask uploadTask = null;
+        String fichero = miLugar;
+        StorageReference imagenRef = Aplicacion.getStorageReference().child(fichero);
+        imgImagen = (ImageView)v.findViewById(R.id.imgImagen);
+        try {
+            switch (opcion) {
+                case SOLICITUD_SUBIR_PUTDATA:
+                    imgImagen.setDrawingCacheEnabled(true);
+                    imgImagen.buildDrawingCache();
+                    Bitmap bitmap = imgImagen.getDrawingCache();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] data = baos.toByteArray();
+                    imagenRef = Aplicacion.getStorageReference().child(fichero);
+                    uploadTask = imagenRef.putBytes(data);
+                    Log.d("MIERROR", "AAAA");
+                    break;
+                case SOLICITUD_SUBIR_PUTSTREAM:
+                    InputStream stream = new FileInputStream(new File(ficheroDispositivo));
+                    uploadTask = imagenRef.putStream(stream);
+                    Log.d("MIERROR", "BBBB");
+                    break;
+                case SOLICITUD_SUBIR_PUTFILE:
+                    Uri file = Uri.fromFile(new File(ficheroDispositivo));
+                    uploadTask = imagenRef.putFile(file);
+                    Log.d("MIERROR", "CCCC");
+                    break;
+            }
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Log.d("MIERROR", "pasamos por aqui 2");
+                    Aplicacion.mostrarDialogo(getActivity().getApplicationContext(), "Ha ocurrido un error al subir la imagen.");
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Log.d("MIERROR", "pasamos por aqui 3");
+                    DatabaseReference myRef = Aplicacion.getItemsReference().child(miLugar);
+                    DatabaseReference imagenRef = myRef.child("imagen");
+                    imagenRef.setValue(taskSnapshot.getDownloadUrl().toString());
+                    new DownloadImageTask((ImageView) imgImagen).execute(taskSnapshot.getDownloadUrl().toString());
+                    progresoSubida.dismiss();
+                    subiendoDatos = false;
+                    Aplicacion.mostrarDialogo(getActivity().getApplicationContext(), "Imagen subida correctamente.");
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    Log.d("MIERROR", "pasamos por aqui 4");
+                    if (!subiendoDatos) {
+                        progresoSubida.show();
+                        subiendoDatos = true;
+                    }
+                }
+            }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onPaused(UploadTask.TaskSnapshot taskSnapshot) {
+                    progresoSubida.dismiss();
+                    subiendoDatos = true;
+                }
+            });
+        } catch (IOException e) {
+            Log.d("MIERROR", "pasamos por aqui");
+            Aplicacion.mostrarDialogo(getActivity().getApplicationContext(), e.toString());
+        }
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mImagen = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mImagen = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return mImagen;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
         }
     }
 
@@ -398,6 +555,32 @@ public class VistaLugarFragment extends Fragment implements TimePickerDialog.OnT
                 Toast.makeText(getActivity(), "Error capturando foto", Toast.LENGTH_LONG).show();
             }
         }
+        Uri ficheroSeleccionado;
+        Cursor cursor;
+        String rutaImagen;
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case SOLICITUD_SELECCION_STREAM:
+                    ficheroSeleccionado = data.getData();
+                    String[] proyeccionStream = {MediaStore.Images.Media.DATA};
+                    cursor = getActivity().getContentResolver().query(ficheroSeleccionado, proyeccionStream, null, null, null);
+                    cursor.moveToFirst();
+                    rutaImagen = cursor.getString(cursor.getColumnIndex(proyeccionStream[0]));
+                    cursor.close();
+                    subirAFirebaseStorage(SOLICITUD_SUBIR_PUTSTREAM, rutaImagen);
+                    break;
+                case SOLICITUD_SELECCION_PUTFILE:
+                    ficheroSeleccionado = data.getData();
+                    String[] proyeccionFile = {MediaStore.Images.Media.DATA};
+                    cursor = getActivity().getContentResolver().query(ficheroSeleccionado, proyeccionFile, null, null, null);
+                    cursor.moveToFirst();
+                    rutaImagen = cursor.getString(cursor.getColumnIndex(proyeccionFile[0]));
+                    cursor.close();
+                    subirAFirebaseStorage(SOLICITUD_SUBIR_PUTFILE, rutaImagen);
+                    break;
+            }
+        }
+
     }
 
     void actualizaLugar(){

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -23,6 +24,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private Location mejorLocaliz;
     private static final int SOLICITUD_PERMISO_LOCALIZACION = 0;
     static final int RESULTADO_PREFERENCIAS = 0;
+    static final int RESULTADO_USER_DETAILS = 1;
     private VistaLugarFragment fragmentVista;
 
     @Override
@@ -54,8 +58,36 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
         manejador = (LocationManager) getSystemService(LOCATION_SERVICE);
         ultimaLocalizazion();
+
+        if (getIntent().getBooleanExtra("LOGOUT", false))
+        {
+            finish();
+        }
+
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA, android.Manifest.permission.GET_ACCOUNTS}, 1);
+/*        View headerLayout = navigationView.getHeaderView(0);
+        TextView txtName = (TextView) headerLayout.findViewById(R.id.txtName);
+        txtName.setText(String.format(getString(R.string.welcome_message), name));
+
+
+*/
+
+
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                if (!(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    Toast.makeText(MainActivity.this, "Permiso denegado para mantener escribir en el almacenamiento." , Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+
+
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -69,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         } else {
             Intent intent = new Intent(this, VistaLugarActivity.class);
             intent.putExtra("id", id);
+            intent.putExtra("miLugar","miLugar");
             startActivityForResult(intent, 0);
         }
     }
@@ -95,6 +128,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         if (id==R.id.menu_mapa) {
             Intent intent = new Intent(this, MapaActivity.class);
             startActivity(intent);
+        }
+
+        if  (id == R.id.details_exit) {
+            lanzarUserDetails(null);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -141,19 +179,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String[] permissions, int[] grantResults) {
-        if (requestCode == SOLICITUD_PERMISO_LOCALIZACION) {
-            if (grantResults.length== 1 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                ultimaLocalizazion();
-                activarProveedores();
-                //adaptador.notifyDataSetChanged();
-                SelectorFragment.adaptador.notifyDataSetChanged();
-            }
-        }
-    }
 
     @Override protected void onResume() {
         super.onResume();
@@ -226,6 +251,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void lanzarPreferencias(View view) {
         Intent i = new Intent(this, PreferenciasActivity.class);
         startActivityForResult(i, RESULTADO_PREFERENCIAS);
+    }
+
+    public void lanzarUserDetails(View view) {
+        // Nombre de usuario
+        SharedPreferences pref = getSharedPreferences(
+                "com.example.mislugares_internal", MODE_PRIVATE);
+        String name = pref.getString("name", "Nombre desconocido");
+        Log.d("BBBB", name);
+        Intent intent = new Intent(this, UserDetailsActivity.class);
+        intent.putExtra("user_name", name);
+        startActivityForResult(intent, RESULTADO_USER_DETAILS);
+
+
     }
 
     @Override

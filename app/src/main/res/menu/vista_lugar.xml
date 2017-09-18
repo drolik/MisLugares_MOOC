@@ -25,4 +25,20 @@
         android:icon="@android:drawable/ic_menu_delete"
         android:orderInCategory="40"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_putData"
+        android:orderInCategory="100"
+        android:title="Subir Imagen"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_streamData"
+        android:orderInCategory="101"
+        android:title="Subir Stream"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_putFile"
+        android:orderInCategory="102"
+        android:title="Subir Fichero"
+        app:showAsAction="never" />
+
 </menu>

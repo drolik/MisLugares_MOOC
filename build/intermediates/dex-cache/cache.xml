@@ -3,102 +3,75 @@
 
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/34f105bb85dfbe607dd50df6c53f6f58480ae9a8/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/f12544cf431e241e48f7c57eaad7733bb2ab59bb/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_a406a654797ba1f27c26843668d0b6e178925f80.jar" />
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_d9e7091dc691bc1c6a9a117b81119f2a0914f807.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/d8f33ba782e0c32fc1502e52b3ea8eb654140607/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/80f2d77650252593ca340aea1471d81a7d7c6da7/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
-        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_ba507e82699b90a41082193f1a4113886dfde603.jar" />
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_880111e3944c999b498f70421302a8a104cdb85b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/ef1d59aa14973f405b8bb84621283a5c13827d45/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/138d676ac2cc5ff52a9eee7759b1ffb760cf4921/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_9581eab4b10d640f86a70796bbae0a3f156b15a6.jar" />
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_3c80f305c1040cb04f3c59ad47f84425456138a1.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/63860daa84e799383c17c7e7c924800212806e26/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/14c5ef1b9fceb62ecaf4342690dbda47dcee445d/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_8ca38e7763f35d5744b46d1f4a27828053f67a87.jar" />
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_99c9fb047fe22f65a5d96607bf9b110097c6c28c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/928381e8cf2d52e1614aa282836651b0fddb3182/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/ba0e0c8b1be379c3e090f351d19187f7d4948408/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
-        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_2cc4536181ea85beff76f53bce25dbdfd2b3a460.jar" />
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_24feef17cc919be4fc53fe6a6818b53ddc9462ad.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/a69e8e371088ad69c2541c94fb7fe3b921ce64d2/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/4ab67650744c311708320f85f591de3fe00008bf/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_b9969f659cf3db68d578645d4741cc163dbb616c.jar" />
+        sha1="a3a0e05009f5b1d19f0cabdfe7d5453a9184e1c6">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_cf449c53c6c8f8695eed73926b44a8cacc79db76.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/ad207d88a48014e222ce364ac01442cfdb72b01d/output/jars/classes.jar"
+        jar="/home/drolik/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="888983f51cf34f57a93ff16832552f2f15937212">
-        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_31f48c2d05625b577d42cd3db80b1106349cdd1d.jar" />
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_fd82a7e6eccbbec7ea636383a2dcbfd238ae34ae.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/drolik/.android/build-cache/4ca17022ce0e86360951a4dc48fcf5e0419a1695/output/jars/classes.jar"
+        jar="/home/drolik/.android/build-cache/e63d483fd58e467c2d84f36197f9ea596ff2c068/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_747fcf63ed0f86b2dac60f905c5c7d055d5335fb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/drolik/.android/build-cache/a49e351471072679159a5bea59e9c5fa60ad0688/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_8187eea67e65bee34447e53ac584a449d64d8a8b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/drolik/.android/build-cache/1fc1140d839ee7eaf61a128c9bf256bbfa6e723d/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
-        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_76cca5e14576fe08b1ce0f1155c87da8114df90c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/drolik/.android/build-cache/0d6e409bbc54fc2bf2af566373bb62c2c988c779/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
-        <dex dex="/home/drolik/Diploma/Desarrollo/Proyecto/MisLugares_base/app/build/intermediates/pre-dexed/debug/classes_39fda15c6b1bbd01374c59fee89d9cee635e01d5.jar" />
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="/home/drolik/Diploma/Proyecto/Desarrollo/Mis Lugares/MisLugares_MOOC/app/build/intermediates/pre-dexed/debug/classes_f2944d57b02d4c680f74b8945524f1793533b3a8.jar" />
     </item>
 
 </items>

@@ -7,10 +7,15 @@
         android:icon="@android:drawable/ic_menu_preferences"
         android:orderInCategory="5"
         app:showAsAction="never"/>
+    <item android:id="@+id/details_exit"
+        android:title="Detalles de Usuario"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:orderInCategory="20"
+        app:showAsAction="never"/>
     <item android:title="Acerca de..."
         android:id="@+id/acercaDe"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:orderInCategory="10"
+        android:orderInCategory="50"
         app:showAsAction="ifRoom|withText"/>
     <item android:title="Buscar"
         android:id="@+id/menu_buscar"
